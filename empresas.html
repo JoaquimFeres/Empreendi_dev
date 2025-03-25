@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nós</title>
+    <title>Empreendi Negócios</title>
     <link rel="icon" type="image/x-icon" href="favicom.ico/favicom.png">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <header class="cabecalho">
+<header class="cabecalho">
         <nav>
             <a class="cabecalho__sobre" href="sobre.html">sobre nós</a>
         </nav> 
-            <a href="index.html" target="_self">
+            <a href="empresas.html" target="_self">
                 <img class="cabecalho__logo" src="Assets/Logo Empreendi Longa Clara.svg" alt="Logo Empreendi">
             </a>
 
@@ -29,41 +28,50 @@
             
     </header>
     
-        <main>
-            <section class="sobre1">
-                <h1 class="sobre__titulos">Brasil com <strong class="sobre__strong">B</strong> de Business</h1>
-                <p class="sobre__texto">Nós somos um website que busca valorizar o empreendedorismo no Brasil por meio da divulgação de histórias de empresários brasileiros e de suas empresas. De maneira dinâmica, buscamos difundir narrativas que inspiram o público brasileiro e ao mesmo tempo fornecem aprendizados valiosos.
-                </p>
-                <p class="sobre__texto">Quando se pensa em empresários e empresas, geralmente vêm à mente nomes e organizações internacionais, e o Brasil acaba ficando para trás. Nosso objetivo é mostrar a força do empreendedorismo brasileiro e que as iniciativas locais tem um grande impacto não somente em nossa economia mas também no cenário global.
-                </p>
-                <p class="sobre__texto">Temos como pilar fundamental a valorização de histórias significativas, sejam de grandes ou pequenas empresas e empreendedores, mantendo representatividade do empreendedorismo em nosso país. 
-                </p>
-                <p class="sobre__texto">Aqui, você encontra conhecimento, inspiração e um convite para repensar o papel do Brasil como protagonista no cenário empresarial.
-                </p>
+        <main class="empresas">
+            <h1 class="empresas__titulo">Aqui você conhece as <mark class="empresas__destaque">empresas</mark> de destaque do nosso país</h1>
+
+            <div class="index__botao">
+                <a class="index__botao__empreendedores" id="index__but1" href="index.html">Empreendedores</a>
+                <a class="index__botao__empresas" id="index__but2" href="empresas.html">Negócios</a>
+            </div>
+
+            <form action="" class="index__form">
+                <label for="pesquisa"></label>
+                <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Busque">
+            </form>
+
+            <section class="index__grid">
+                
+                <div class="grid-item">
+                    <a class="index__empresarios__butao" href="textos/sbt.html">
+                        <div class="index__empresarios__especificos">
+                            <img class="empresas__empresas__img" src="Assets/Empresarios/sbt1.png" alt="Logo do SBT">
+                            <p class="empresas__empresas__texto">SBT</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="grid-item">
+                    <a class="index__empresarios__butao" href="textos/facebook.html">
+                        <div class="index__empresarios__especificos">
+                            <img class="empresas__empresas__img" src="Assets/Empresarios/facebook1.jpeg" alt="Logo do Facebook">
+                            <p class="empresas__empresas__texto">Facebook</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="grid-item">
+                    <a href="textos/tresg.html" class="index__empresarios__butao">
+                        <div class="index__empresarios__especificos">
+                            <img src="Assets/Empresarios/tresg1.png" alt="3G Capital logo" class="empresas__empresas__img">
+                            <p class="empresas__empresas__texto">3G Capital</p>
+                        </div>
+                    </a>
+                </div>
+                
             </section>
 
-            <section class="sobre2">
-                <div class="sobre__divs">
-                    <img class="sobre__fotos" src="Assets/sobre_nos/Foto-Joaquim.jpg" alt="Foto de Joaquim">
-                    <p class="sobre__descricao">Joaquim Ferreira</p>
-                    <p class="sobre__integrantes">Desenvolvedor<br> Front-end e Back-end</p>
-                </div>
-                <div class="sobre__divs">
-                    <img class="sobre__fotos" src="Assets/sobre_nos/dede.png" alt="Foto de André">
-                    <p class="sobre__descricao">André Moeller</p>
-                    <p class="sobre__integrantes">Redator</p>
-                </div>
-                <div class="sobre__divs">
-                    <img class="sobre__fotos" src="Assets/sobre_nos/rod-photoaidcom-cropped.jpg" alt="Foto de Rodrigo">
-                    <p class="sobre__descricao">Rodrigo Dale</p>
-                    <p class="sobre__integrantes">Redator e Social<br>Media Manager</p>
-                </div>
-                <div class="sobre__divs">
-                    <img class="sobre__fotos" src="Assets/sobre_nos/Moreda.png" alt="Fotografia de Théo">
-                    <p class="sobre__descricao">Théo Morêda</p>
-                    <p class="sobre__integrantes">Designer<br>e Idealizador</p>
-                </div>
-            </section>
         </main>
 
         <footer class="rodape">
@@ -94,7 +102,3 @@
                 
             </section>
         </footer>
-        
-    
-</body>
-</html>

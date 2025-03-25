@@ -4,10 +4,13 @@
     --Preto: #000000;
     --Branco: #ffff;
     --Cinza: #D9E0E4;
+    --Links: #1E90FF;
     --Titulo-Especial: #02B153;
+    --Destaque: #FFD700;
     --Preto-hover: #202020;
 
     --font-primaria: "Inter", 'sans-serif';
+    --transition-default: 0.3s ease;
 }
 
 * {
@@ -124,7 +127,7 @@
 
 .rodape__direita__links {
     margin: 0 1.6rem 0.5rem 0;
-    color: var(--Cinza);
+    color: var(--Branco);
     font-size: 0.75rem;
     font-weight: 400;
     text-align: right;
@@ -262,4 +265,209 @@
     transition: background-color 0.5s ease, color 0.5s ease;
     padding: 1rem;
     border-radius: 10px;
+}
+
+/*Termos de Uso*/
+.termos {
+    text-align: justify;
+    margin: 2rem 10rem;
+}
+
+.termos__titulo {
+    font-size: 1.8rem;
+    margin-bottom: 1.3rem;
+}
+.termos__subt {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+/*Politica*/
+.politica {
+    margin-bottom: 3rem;
+    padding: 2rem 5rem;
+    text-align: justify;
+}
+.politica__titulo {
+    font-size: 1.8rem;
+}
+
+.politica__subt {
+    font-size: 1rem;
+}
+
+/*Index*/
+.index {
+    margin: 0 8rem;
+    text-align: center;
+}
+.index__titulo{
+    margin: 2rem 2rem;
+    font-size: 2rem;
+}
+
+.index__botao__empreendedores,
+.index__botao__empresas {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 0.6rem 0.8rem;
+    border-radius: 30px;
+    border: 2px solid var(--Preto);
+    color: var(--Preto);
+    background-color: var(--Branco);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.index__botao__empreendedores:hover,
+.index__botao__empresas:hover {
+    background-color: var(--Preto-hover);
+    color: var(--Branco);
+}
+
+.index__botao__empreendedores.active,
+.index__botao__empresas.active {
+    background-color: var(--Preto);
+    color: var(--Branco);
+}
+
+.index__form{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.pesquisa {
+    width: 60%;
+    padding: 0.8rem 1rem;
+    padding-right: 3rem; /* Espaço para o ícone */
+    border: 2px solid var(--Cinza);
+    border-radius: 30px;
+    font-size: 1rem;
+    color: var(--Preto);
+    background-color: var(--Branco);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.pesquisa:focus {
+    border-color: var(--Preto);
+    outline: none;
+}
+
+.index__grid{
+    margin: 5rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    row-gap: 1rem;
+    column-gap: 2rem;
+    justify-content: center;
+
+}
+
+.index__empresarios__img, .empresas__empresas__img{
+    width: 200px;
+    height: 200px; 
+    object-fit: cover; 
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: block;
+}
+
+.index__empresarios__texto{
+    padding: 1rem 0;
+    border: solid var(--Preto);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-weight: 600;
+    color: var(--Preto);
+}
+
+.index__empresarios__butao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    text-decoration: none; 
+    background-color: var(--Branco);
+    cursor: pointer;
+}
+
+.index__empresarios__butao:hover{
+    transform: scale(1.07);
+    transition: 0.7s;
+}
+
+/*Empresas*/
+.empresas {
+    margin: 0 8rem;
+    text-align: center;
+}
+
+.empresas__titulo{
+    margin: 2rem 2rem;
+    font-size: 2rem;
+}
+
+.empresas__empresas__texto {
+    background-color: var(--Preto);
+    color: var(--Branco);
+    padding: 1rem 0;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-weight: 600;
+}
+
+.empresas__empresas__img {
+    border-left: solid var(--Preto);
+    border-right: solid var(--Preto);
+    border-top: solid var(--Preto);
+}
+
+/*textos*/
+.textos {
+    margin: 3rem 15rem; 
+    text-align: center;   
+}
+
+.textos__titulo {
+    font-size: 2rem;
+    margin-bottom: 1.3rem;
+}
+
+.textos__img__container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.textos__img{
+    border-radius: 12px;
+    width: 70%;
+    height: auto;
+    max-width: 100%;
+}
+.textos__subt {
+    font-size: 1.3rem;
+    line-height: 4rem;
+}
+
+.textos__texto {
+    padding: 0.8rem 0;
+    text-align: justify;
+    line-height: 2rem;
+
+}
+
+.textos__citacoes{
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+.links__comum {
+    text-decoration: none;
+    color: var(--Links);
+    font-weight: 600;
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empreendi</title>
-    <link rel="icon" type="image/x-icon" href="favicom.ico/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="favicom.ico/favicom.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -29,8 +29,58 @@
             
     </header>
     
-        <main>
-    
+        <main class="index">
+            <h1 class="index__titulo">Aqui você conhece a trajetória de <mark class="index__destaque">empreendedores</mark> de destaque do nosso país</h1>
+
+            <div class="index__botao">
+                <a class="index__botao__empreendedores" id="index__but1" href="index.html">Empreendedores</a>
+                <a class="index__botao__empresas" id="index__but2" href="empresas.html">Negócios</a>
+            </div>
+
+            <form action="" class="pesquisa__form">
+                <label for="pesquisa"></label>
+                <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Busque">
+            </form>
+
+            <section class="index__grid">
+                <div class="grid-item">
+                    <a href="textos/sil_san.html" class="index__empresarios__butao">
+                        <div class="index__empresarios__especificos">
+                            <img class="index__empresarios__img" src="Assets/Empresarios/sil_san1.png" alt="Silvio Santos">
+                            <p class="index__empresarios__texto">Silvio Santos</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="grid-item">
+                    <a href="textos/alex_costa.html" class="index__empresarios__butao">
+                        <div class="index__empresarios__especificos">
+                            <img src="Assets/Empresarios/alex__costa1.jpeg" alt="Alexandre Tadeu da Costa" class="index__empresarios__img">
+                            <p class="index__empresarios__texto">Alexandre da Costa</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="grid-item">
+                    <a class="index__empresarios__butao" href="textos/edu_sav.html">
+                        <div class="index__empresarios__especificos">
+                            <img src="Assets/Empresarios/edu_sav1.png" alt="Eduardo Saverin" class="index__empresarios__img">
+                            <p class="index__empresarios__texto">Eduardo Saverin</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="grid-item">
+                    <a href="textos/jor_lem.html" class="index__empresarios__butao">
+                        <div class="index__empresarios__especificos">
+                            <img src="Assets/Empresarios/jor_lem1.jpg" alt="Jorge Paulo Lemann" class="index__empresarios__img">
+                            <p class="index__empresarios__texto">Jorge Paulo Lemann</p>
+                        </div>
+                    </a>
+                </div>
+                
+            </section>
+
         </main>
 
         <footer class="rodape">
@@ -61,5 +111,6 @@
                 
             </section>
         </footer>
+        <script src="main.js"></script>
 </body>
 </html>
