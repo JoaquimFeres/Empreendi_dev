@@ -13,9 +13,7 @@
     </script>
     <script type="text/javascript">
     (function(){
-        emailjs.init({
-            publicKey: "cU5DhaIEKivpJTAmy",
-        });
+        emailjs.init("sU32cZLv-3PFS_1HZ");
     })();
     </script>
     <script src="main.js"></script>
@@ -45,17 +43,17 @@
 
             <h2 class="feedback__title">Feedback</h2>
 
-            <form class="feedback__forms" action="" method="post">
+            <form class="feedback__forms" method="post" id="feedbackForm">
                 <label for="name">Nome:</label><br>
-                <input type="text" id="name" name="name" class="feedback__nome" required><br>
+                <input type="text" id="name" class="feedback__nome" required><br>
                 
                 <label for="email">E-Mail:</label><br>
-                <input type="email" id="email" name="email" class="feedback__email" required><br>
+                <input type="email" id="email" class="feedback__email" required><br>
                 
                 <label for="feedback__text">Feedback:</label><br>
-                <textarea name="feedback__text" id="feedback__text" class="feedback__text" required></textarea><br>
+                <textarea  id="feedback__text" class="feedback__text" required></textarea><br>
                 
-                <button type="submit" class="feedback__submit" onclick="sendMail()">Enviar</button>
+                <button type="button" class="feedback__submit" onclick="sendMail()">Enviar</button>
             </form>
 
         </main>
