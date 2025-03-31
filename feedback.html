@@ -7,6 +7,18 @@
     <title>Feedback</title>
     <link rel="icon" type="image/x-icon" href="favicom.ico/favicom.png">
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "cU5DhaIEKivpJTAmy",
+        });
+    })();
+    </script>
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -43,7 +55,7 @@
                 <label for="feedback__text">Feedback:</label><br>
                 <textarea name="feedback__text" id="feedback__text" class="feedback__text" required></textarea><br>
                 
-                <button type="submit" class="feedback__submit">Enviar</button>
+                <button type="submit" class="feedback__submit" onclick="sendMail()">Enviar</button>
             </form>
 
         </main>
