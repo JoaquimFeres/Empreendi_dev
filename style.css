@@ -2,7 +2,7 @@
 
 :root {
     --Preto: #000000;
-    --Branco: #ffff;
+    --Branco: #ffffff;
     --Cinza: #D9E0E4;
     --Links: #1E90FF;
     --Titulo-Especial: #02B153;
@@ -403,18 +403,20 @@
 
 /*Empresas*/
 .empresas {
+    background-color: #000000;
     margin: 0 8rem;
     text-align: center;
 }
 
 .empresas__titulo{
+    color: var(--Branco);
     margin: 2rem 2rem;
     font-size: 2rem;
 }
 
 .empresas__empresas__texto {
-    background-color: var(--Preto);
-    color: var(--Branco);
+    background-color: var(--Branco);
+    color: var(--Preto);
     padding: 1rem 0;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
