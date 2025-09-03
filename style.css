@@ -2,7 +2,7 @@
 
 :root {
     --Preto: #000000;
-    --Branco: #ffffff;
+    --Branco: #ffff;
     --Cinza: #D9E0E4;
     --Links: #1E90FF;
     --Titulo-Especial: #02B153;
@@ -365,7 +365,7 @@
     row-gap: 1rem;
     column-gap: 2rem;
     justify-content: center;
-
+    
 }
 
 .index__empresarios__img, .empresas__empresas__img{
@@ -403,14 +403,15 @@
 
 /*Empresas*/
 .empresas {
-    background-color: #000000;
-    margin: 0 8rem;
+    background-color: var(--Preto);
+    min-height: 100vh;
+    width: 100vw;
+    padding: 2rem 8rem; /* Espaço interno nas laterais */
     text-align: center;
 }
 
 .empresas__titulo{
     color: var(--Branco);
-    margin: 2rem 2rem;
     font-size: 2rem;
 }
 
@@ -418,16 +419,95 @@
     background-color: var(--Branco);
     color: var(--Preto);
     padding: 1rem 0;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     font-weight: 600;
+    box-shadow: 0 20px 0 0 var(--Preto); /* sombra preta nos cantos inferiores */
+}
+
+.empresas__destaque {
+    color: var(--Branco);
+    background-color: purple;
 }
 
 .empresas__empresas__img {
-    border-left: solid var(--Preto);
-    border-right: solid var(--Preto);
-    border-top: solid var(--Preto);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0px 0px 0px 20px var(--Preto);
 }
+
+.grid_empresas {
+    background-color: var(--Preto);
+    padding-bottom: 0.5rem; /* opcional, para espaçamento */
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.cabecalho_empresas {
+    background-color: var(--Preto);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem 0rem 2rem;
+    border-bottom: solid var(--Branco);
+}
+
+.cabecalho__sobre_empresas {
+    color: var(--Branco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.rodape_empresas {
+    padding: 1.5rem 2rem;
+    background-color: var(--Branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rodape__esquerda__logo {
+    width: 12rem;
+    margin: 0 0 1rem 0.3rem;
+}
+
+.rodape__esquerda__feedback { /*botão de feedback*/
+    text-decoration: none;
+    border: 2px solid var(--Branco);
+    background-color: var(--Branco);
+    border-radius: 100px;
+    color: var(--Preto);
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.3rem 0rem;
+}
+
+.rodape__esquerda__info_empresas {
+    color: var(--Preto);
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0.3rem;
+    text-align: left ;
+}
+
+.rodape__direita__email_empresas {
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0 1.6rem 1.2rem 0; /* Adjust margin as needed */
+}
+
+.rodape__direita__links_empresas {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: right;
+}
+
 
 /*textos*/
 .textos {
