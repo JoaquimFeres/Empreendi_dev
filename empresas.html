@@ -5,177 +5,260 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empreendi Negócios</title>
-    <link rel="icon" type="image/x-icon" href="favicom.ico/favicom.png">
+    <link rel="icon" type="image/x-icon" href="favicom.ico/favicom 2.0.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<header class="cabecalho_empresas">
+<body>
+    <header class="cabecalho__empresas">
         <nav>
-            <a class="cabecalho__sobre_empresas" href="sobre.html">sobre nós</a>
+            <a class="cabecalho__sobre__empresas" href="sobre.html">Sobre</a>
         </nav> 
-            <a href="empresas.html" target="_self">
-                <img class="cabecalho__logo" src="Assets/Empreendi logo preto.svg" alt="Logo Empreendi">
+            <a href="index.html" target="_self">
+                <img class="cabecalho__logo__empresas" src="Assets/Logos Empreendi/logo-e-branco.svg" alt="Logo Empreendi">
             </a>
 
-            <div class="cabecalho__links">
-                <a href="https://www.instagram.com/empreendi_br/" target="_blank">
-                    <img class="cabecalho__links__redes" src="Assets/Logos redes sociais/logo-instagram-branco.svg" alt="Instagram">
-                </a>
-                <a href="https://www.linkedin.com/in/empreendi-brasil-361616346/" target="_blank">
-                    <img class="cabecalho__links__redes" src="Assets/rodape/linkedin rodape.svg" alt="Linkedin">
-                </a>
-            </div>
+        <div class="index__botao__empresas">
+                <a class="index__botao__empreendedores__empresas" id="index__but2" href="index.html">Empreendedores</a>
+        </div>
             
     </header>
     
-        <main class="empresas">
-            <h1 class="empresas__titulo">Aqui você conhece as <mark class="empresas__destaque">empresas</mark> de destaque do nosso país</h1>
+        <main class="index__empresas">
+            <h1 class="index__titulo__empresas">Aqui você conhece a trajetória de<br>empresas de destaque de nosso país</h1>
 
-            <div class="index__botao">
-                <a class="index__botao__empreendedores" id="index__but1" href="index.html">Empreendedores</a>
-                <a class="index__botao__empresas" id="index__but2" href="empresas.html">Negócios</a>
+            <div class="search-wrapper__empresas">
+            <!-- A barra de busca -->
+                <form class="search-bar__empresas" id="searchForm" method="get">
+                <!-- ROW superior (menu-btn, input, search-btn) -->
+                    <div class="search-row__empresas">
+                        <!-- Botão extra à esquerda -->
+                        <span class="circle__empresas"></span>
+                        <button type="button" class="menu-btn__empresas" aria-label="Menu" aria-expanded="false">
+                            <span class="menu-btn__line__empresas"></span>
+                            <span class="menu-btn__line__empresas"></span>
+                            <span class="menu-btn__line__empresas"></span>
+                        </button>
+
+                        <!-- Campo de busca -->
+                        <input type="search" id="searchInput" name="q" placeholder="Digite sua busca..." required>
+
+                        <!-- Botão de pesquisa com lupa -->
+                        <button type="submit" class="search-btn__empresas" aria-label="Pesquisar">
+                            <img class="imagem_botao_lupa__empresas" src="Assets/lupa-preta.png" alt="Pesquisar">
+                        </button>
+                    </div>
+                    <p class="titulo__filtros__empresas">Filtros</p>
+                    <!-- FILTROS agora DENTRO da search-bar (antes estava fora) -->
+                    <div class="filtro-container__empresas" id="filtroContainer" aria-hidden="true">
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Tecnologia"> Tecnologia
+                        </label>
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Finanças"> Finanças
+                        </label>
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Varejo"> Varejo
+                        </label>
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Multinacional"> Multinacional
+                        </label>
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Alimentação"> Alimentação
+                        </label>
+                         <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Comunicação"> Comunicação
+                        </label>
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Indústria"> Indústria
+                        </label>
+                        <label class="filtro-item__empresas">
+                            <input class="checkbox_filtro__empresas" type="checkbox" value="Beleza"> Beleza
+                        </label>
+
+                        <!-- IMPORTANT: type="button" para não submeter o formulário -->
+                        <button id="aplicarFiltros" type="button" class="filtro-aplicar__empresas">Aplicar</button>
+                    </div>
+                </form>
+
             </div>
 
-            <section class="index__grid">
+
+
+
+            <section class="index__grid__empresas">
                 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Comunicação">
                     <a class="index__empresarios__butao" href="textos/sbt.html">
-                        <div class="index__empresarios__especificos">
-                            <img class="empresas__empresas__img" src="Assets/Empresarios/sbt1.png" alt="Logo do SBT">
+                        <div class="index__empresas__especificas">
+                            <img class="empresas__empresas__img" src="Assets/logos empresas/sbt.png" alt="Logo do SBT">
                             <p class="empresas__empresas__texto">SBT</p>
+                            <p class="index__empresas__desc">Comunicação</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Alimentação,Varejo">
                     <a class="index__empresarios__butao" href="textos/cacau_show.html">
-                        <div class="index__empresarios__especificos">
-                            <img class="empresas__empresas__img" src="Assets/Empresarios/cacau_show1.png" alt="Logo da Cacau Show">
+                        <div class="index__empresas__especificas">
+                            <img class="empresas__empresas__img" src="Assets/logos empresas/cacau show.png" alt="Logo da Cacau Show">
                             <p class="empresas__empresas__texto">Cacau Show</p>
+                            <p class="index__empresas__desc">Alimentação <br> Varejo</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Tecnologia,Multinacional">
                     <a class="index__empresarios__butao" href="textos/facebook.html">
-                        <div class="index__empresarios__especificos">
-                            <img class="empresas__empresas__img" src="Assets/Empresarios/facebook1.jpeg" alt="Logo do Facebook">
+                        <div class="index__empresas__especificas">
+                            <img class="empresas__empresas__img" src="Assets/logos empresas/facebook.png" alt="Logo do Facebook">
                             <p class="empresas__empresas__texto">Facebook</p>
+                            <p class="index__empresas__desc">Tecnologia<br> Multinacional</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Finanças">
                     <a href="textos/tresg.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
-                            <img src="Assets/Empresarios/tresg1.png" alt="3G Capital logo" class="empresas__empresas__img">
+                        <div class="index__empresas__especificas">
+                            <img src="Assets/logos empresas/3G Capital3.png" alt="3G Capital logo" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">3G Capital</p>
+                            <p class="index__empresas__desc">Finanças</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Finanças,Multinacional">
                     <a href="textos/itau.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
-                            <img src="Assets/Empresarios/itau1.jpg" alt="Logo do Itau" class="empresas__empresas__img">
+                        <div class="index__empresas__especificas">
+                            <img src="Assets/logos empresas/itau.png" alt="Logo do Itau" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Itaú</p>
+                            <p class="index__empresas__desc">Finanças <br> Multinacional</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Indústria">
                     <a href="textos/jr_die.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
-                            <img src="Assets/Empresarios/jr_die1.png" alt="Logo JR Diesel" class="empresas__empresas__img">
+                        <div class="index__empresas__especificas">
+                            <img src="Assets/logos empresas/jr diesel.png" alt="Logo JR Diesel" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">JR Diesel</p>
+                            <p class="index__empresas__desc">Indústria</p>
                         </div>
                     </a>
                 </div>
                 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Beleza,Varejo">
                     <a href="textos/phy.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
+                        <div class="index__empresas__especificas">
                             <img src="Assets/Empresarios/phy1.png" alt="Logo da Phytoervas" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Phytoervas</p>
+                            <p class="index__empresas__desc">Beleza <br> Varejo</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Varejo">
                     <a href="textos/havan.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
+                        <div class="index__empresas__especificas">
                             <img src="Assets/Empresarios/havan1.png" alt="Logo da Havan" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Havan</p>
+                            <p class="index__empresas__desc">Varejo</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Alimentação,Indústria">
                     <a href="textos/chi_box.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
-                            <img src="Assets/Empresarios/chi_box1.png" alt="Logo China in Box" class="empresas__empresas__img">
+                        <div class="index__empresas__especificas">
+                            <img src="Assets/logos empresas/trend foods2.png" alt="Logo China in Box" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Trend Foods</p>
+                            <p class="index__empresas__desc">Alimentação <br> Indústria</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Tecnologia">
                     <a href="textos/buscapé.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
-                            <img src="Assets/Empresarios/buscape1.png" alt="Logo da Buscapé" class="empresas__empresas__img">
+                        <div class="index__empresas__especificas">
+                            <img src="Assets/logos empresas/buscape.png" alt="Logo da Buscapé" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Buscapé</p>
+                            <p class="index__empresas__desc">Tecnologia</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Indústria,Multinacional">
                     <a href="textos/emb.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
+                        <div class="index__empresas__especificas">
                             <img src="Assets/Empresarios/emb1.png" alt="Logo da Embraer" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Embraer</p>
+                            <p class="index__empresas__desc">Indústria <br> Multinacional</p>
                         </div>
                     </a>
                 </div>
 
-                <div class="grid_empresas">
+                <div class="grid-item__empresas" data-filtros="Tecnologia">
                     <a href="textos/gesto.html" class="index__empresarios__butao">
-                        <div class="index__empresarios__especificos">
+                        <div class="index__empresas__especificas">
                             <img src="Assets/Empresarios/gesto.jpeg" alt="Logo da Gesto" class="empresas__empresas__img">
                             <p class="empresas__empresas__texto">Gesto</p>
+                            <p class="index__empresas__desc">Tecnologia</p>
                         </div>
                     </a>
                 </div>
 
             </section>
 
+            <!-- Paginação -->
+            <div class="pagination__empresas">
+                <button class="page-btn__empresas active" data-page="1">1</button>
+                <button class="page-btn__empresas" data-page="2">2</button>
+                <button class="page-btn__empresas" data-page="3">3</button>
+                <button class="page-btn__empresas" data-page="4">4</button>
+                <button class="page-btn__empresas" data-page="5">5</button>
+            </div>
+
+
         </main>
+        <section class="secao__rodape__empresas">
+            <footer class="rodape__empresas">
+                <section class="rodape__esquerda__empresas">
+                    <a class="rodape__esquerda__feedback__empresas" href="feedback.html">Nós dê um feedback!</a>
+                    <p class="rodape__esquerda__compliance__empresas">COMPLIANCE</p>
+                    <a class="rodape__esquerda__links__empresas"href="politica.html">Política de Privacidade</a>
+                    <a class="rodape__esquerda__links__empresas" href="termos.html">Termos & Condições de uso</a>
+                    <a href="index.html" target="_self">
+                        <img class="rodape__esquerda__logo__empresas" src="Assets/Logos Empreendi/logo-empreendi-preto.svg" alt="Logo Empreendi versão escuro">
+                    </a>
+                    <p class="rodape__esquerda__info__empresas">Empreendi © 2025 is licensed under CC BY-SA 4.0 </p>
+                </section>
 
-        <footer class="rodape_empresas">
-            <section class="rodape__esquerda">
-                <a class="rodape__esquerda__feedback_empresas" href="feedback.html">Nós dê um feedback!</a>
-                <img class="rodape__esquerda__logo_empresas" src="Assets/Logo Empreendi Longa Clara.svg" alt="Logo Empreendi versão clara">
-                <p class="rodape__esquerda__info_empresas">Empreendi © 2025 is licensed under CC BY-SA 4.0 </p>
-            </section>
+                <section class="rodape__direita__empresas">
+                    <p class="rodape__direita__email__empresas">contato@empreendibr.com</p>
+                    <p class="rodape__direita__textos__empresas">TEXTOS</p>
+                    <a class="rodape__direita__link__empresas__empresas" href="empresas.html" target="_self">Ver empresas</a>
+                    <a class="rodape__direita__link__empresarios__empresas" href="index.html" target="_self">Ver empresarios</a>
+                    <p class="rodape__direita__empreendi__empresas">EMPREENDI</p>
+                    <a class="rodape__direita__link__sobre__nos__empresas" href="sobre.html" target="_self">Sobre nós</a></p>
+                </section>
+            </footer>
 
-            <section class="rodape__direita">
-                <p class="rodape__direita__email_empresas">contato@empreendibr.com</p>
-                <div class="rodape__direita__redes_empresas">
-                    <a href="https://www.linkedin.com/in/empreendi-brasil-361616346/" target="blanck">
-                        <img class="rodape__direita__redes__linkedin" src="Assets/Logos redes sociais/logo-linkedin-preto-2.png" alt="link linkedin do Empreendi">
+            <div class="redes__sociais__fim__empresas">
+                    <a href="https://www.linkedin.com/in/empreendi-brasil-361616346/" target="_blank">
+                        <img class="redes__sociais__fim__icone__linkedin__empresas" src="Assets/Logos redes sociais/linkedin/linkedin-branco.png" alt="link linkedin do Empreendi">
                     </a>
-                    <a href="https://www.instagram.com/empreendi_br/" target="blanck">
-                        <img class="rodape__direita__redes__icones" src="Assets/Logos redes sociais/logo-instagram-preto.svg" alt="link instagram do Empreendi">
+                    <a href="https://www.instagram.com/empreendi_br/" target="_blank">
+                        <img class="redes__sociais__fim__icone__instagram__empresas" src="Assets/Logos redes sociais/instagram/instagram-branco.svg" alt="link instagram do Empreendi">
                     </a>
-                    <a href="https://x.com/empreendi_br" target="blanck">
-                        <img class="rodape__direita__redes__icones" src="Assets/Logos redes sociais/logo-x-preto-alternativo.png" alt="link x do Empreendi">
+                    <a href="https://x.com/empreendi_br" target="_blank">
+                        <img class="redes__sociais__fim__icone__x__empresas" src="Assets/Logos redes sociais/X/x-branco.png" alt="link x do Empreendi">
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61571690737986&_rdc=1&_rdr" target="blanck">
-                        <img class="rodape__direita__redes__icones" src="Assets/Logos redes sociais/logo-facebook-preto.png" alt="Link facebook do Empreendi">
+                    <a href="https://www.facebook.com/profile.php?id=61571690737986&_rdc=1&_rdr" target="_blank">
+                        <img class="redes__sociais__fim__icone__facebook__empresas" src="Assets/Logos redes sociais/facebook/facebook-branco.png" alt="Link facebook do Empreendi">
                     </a>
-                </div>
-                <a class="rodape__direita__links_empresas"href="politica.html">Política de Privacidade</a>
-                <a class="rodape__direita__links_empresas" href="termos.html">Termos & Condições de uso</a>
-                
-            </section>
-        </footer>
+            </div>
+        </section>
+        <script src="main.js"></script>
+</body>
 </html>

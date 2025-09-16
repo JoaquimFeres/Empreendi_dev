@@ -23,32 +23,109 @@
 /* Header*/
 .cabecalho {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;   /* centraliza o logo */
     align-items: center;
-    padding: 0.8rem 2rem 0rem 2rem;
+    padding: 1rem 2rem;        /* espaçamento lateral responsivo */
     background-color: var(--Branco);
-    border-bottom: solid;
+    gap: 2rem;                 /* espaço entre os itens */
+    position: relative;        /* vai ajudar no truque abaixo */
 }
+
+/* Truque para manter o logo 100% centralizado */
+.cabecalho nav,
+.index__botao {
+    flex: 1;                   /* lados ocupam espaço igual */
+    display: flex;
+}
+
+/* Mantém o "Sobre" à esquerda */
+.cabecalho nav {
+    justify-content: flex-start;
+    padding-left: 2rem;
+}
+
+/* Mantém o "Negócios" à direita */
+.index__botao {
+    justify-content: flex-end;
+    padding-right: 2rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .cabecalho nav {
+        padding-left: 1.5rem;
+    }
+
+    .index__botao {
+        padding-right: 1.5rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .cabecalho nav {
+        padding-left: 1rem;
+    }
+
+    .index__botao {
+        padding-right: 1rem;
+    }
+}
+
+/* Logo centralizado de forma garantida */
+.cabecalho__logo {
+    width: 2rem;
+    display: block;
+    margin: 0 auto;
+}
+
 
 .cabecalho__sobre {
     color: var(--Preto);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 
-.cabecalho__logo {
-    width: 11rem;
+.index__botao__das__empresas {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 30px;
+    color: var(--Preto);
+    background-color: var(--Branco);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem;
 }
 
-.cabecalho__links {
-    display: flex;
-    flex-direction: row;
+/* Efeito sublinhado animado para Sobre e Negócios */
+.cabecalho__sobre,
+.index__botao__das__empresas {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--Preto);
+    font-weight: 600;
 }
 
-.cabecalho__links__redes {
-    width: 1.4rem;
-    margin-left: 0.5rem;
+/* Linha escondida inicialmente */
+.cabecalho__sobre::after,
+.index__botao__das__empresas::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* distância da linha até o texto */
+    width: 0%;
+    height: 2px;
+    background-color: var(--Preto);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Linha aparece da esquerda para a direita */
+.cabecalho__sobre:hover::after,
+.index__botao__das__empresas:hover::after {
+    width: 100%;
 }
 
 /*footer*/
@@ -58,6 +135,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 730px;
+    margin: 0 auto;
+    border-radius: 40px;
+    padding: 2rem 1rem;  /* era para ser 5 ao invés de 2 para ficar do tamanho adequado*/
+    margin-bottom: 1rem;
 }
 
 .rodape__esquerda {
@@ -69,28 +151,44 @@
 
 .rodape__esquerda__logo {
     width: 12rem;
-    margin: 0 0 1rem 0.3rem;
+    margin: 1rem 0 0rem 0.3rem;
+}
+
+.rodape__esquerda__compliance {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
 }
 
 .rodape__esquerda__feedback { /*botão de feedback*/
     text-decoration: none;
-    border: 2px solid var(--Branco);
+    border: 4px solid var(--Branco);
     background-color: var(--Branco);
-    border-radius: 100px;
+    border-radius: 1000px;
     color: var(--Preto);
     font-weight: 600;
     text-align: center;
     font-size: 1rem;
     margin-bottom: 2rem;
     padding: 0.3rem 0rem;
+    width: 210px;
+
+  /* animação mais suave para o zoom */
+    transition: transform 0.5s ease; /* aumentamos o tempo e suavizamos a curva */
+}
+
+.rodape__esquerda__feedback:hover {
+    transform: scale(1.08); /* aumento discreto */
 }
 
 .rodape__esquerda__info {
     color: var(--Branco);
-    font-size: 0.7rem;
-    font-weight: 400;
+    font-size: 0.75rem;
+    font-weight: 500;
     margin: 0 0 0.5rem 0.3rem;
-    text-align: left ;
+    text-align: left;
 }
 
 .rodape__direita {
@@ -102,35 +200,132 @@
 
 .rodape__direita__email {
     color: var(--Branco);
-    font-size: 0.9rem;
-    font-weight: 400;
-    margin: 0 1.6rem 1.2rem 0; /* Adjust margin as needed */
+    font-size: 1rem;
+    font-weight: 450;
+    margin: 0rem 1.6rem 1.2rem 0; /* Adjust margin as needed */
 }
 
-.rodape__direita__redes {
+.rodape__esquerda__links {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    color: #696969;
+
+    /* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__esquerda__links:hover {
+    color: var(--Branco); /* muda para branco ao passar o cursor */
+}
+
+.rodape__direita__textos {
+    margin: 1.5rem 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.rodape__direita__link__empresas {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+    color: #696969;
+
+
+    /* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__direita__link__empresas:hover {
+    color: var(--Branco); /* muda para branco ao passar o cursor */
+}
+
+.rodape__direita__link__empresarios {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+    color: #696969;
+
+    /* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__direita__link__empresarios:hover {
+    color: var(--Branco); /* muda para branco ao passar o cursor */
+}
+
+.rodape__direita__empreendi {
+    margin: 2rem 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.rodape__direita__link__sobre__nos {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Branco);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+    color: #696969;
+
+/* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__direita__link__sobre__nos:hover {
+    color: var(--Branco); /* muda para branco ao passar o cursor */
+}
+
+.rodape a {
+    text-decoration: none;  /* remove o sublinhado */
+}
+
+/*redes sociais fim*/
+.redes__sociais__fim {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     align-items: center;
-    margin-bottom: 1.2rem; /* Adjust margin as needed */
+    margin: 2rem auto;
 }
 
-.rodape__direita__redes__icones {
+.redes__sociais__fim__icone__linkedin, .redes__sociais__fim__icone__x, .redes__sociais__fim__icone__instagram, .redes__sociais__fim__icone__facebook {
     padding: 0.125rem;
-    width: 1.8rem;
-    }
+    width: 30px;
 
-.rodape__direita__redes__linkedin {
-    padding: 0.125rem;
-    width: 1.7rem;
+/* animação suave para transform e troca da imagem */
+    transition: transform 0.3s ease, content 0.3s ease;
 }
 
-.rodape__direita__links {
-    margin: 0 1.6rem 0.5rem 0;
-    color: var(--Branco);
-    font-size: 0.75rem;
-    font-weight: 400;
-    text-align: right;
+/* efeito ao passar o mouse */
+.redes__sociais__fim a:hover .redes__sociais__fim__icone__linkedin {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/linkedin/linkedin-cinza.png"); /* troca para a logo cinza */
+}
+
+.redes__sociais__fim a:hover .redes__sociais__fim__icone__x {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/X/x-cinza.png"); /* troca para a logo cinza */
+}
+
+.redes__sociais__fim a:hover .redes__sociais__fim__icone__instagram {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/instagram/instagram-cinza.svg"); /* troca para a logo cinza */
+}
+
+.redes__sociais__fim a:hover .redes__sociais__fim__icone__facebook {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/facebook/facebook-cinza.png"); /* troca para a logo cinza */
 }
 
 /*feedback page*/
@@ -138,7 +333,7 @@
     padding-top: 1rem ;
     display: flex;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2.15rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -146,11 +341,11 @@
 .feedback__forms {
     background-color: var(--Preto);
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--Branco);
-    border-radius: 20px;
+    border-radius: 35px;
     color: var(--Branco);
     max-width: 600px;
 }
@@ -158,7 +353,7 @@
 .feedback__nome, .feedback__email {
     padding: 0.5rem;
     border: 1px solid var(--Cinza);
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: var(--Branco);
     color: var(--Preto);
     font-size: 1rem;
@@ -168,7 +363,7 @@
     margin-bottom: 1rem;
     padding: 0.5rem;
     border: 1px solid var(--Cinza);
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: var(--Branco);
     color: var(--Preto);
     font-size: 1rem;
@@ -178,10 +373,10 @@
 .feedback__submit {
     padding: 0.6rem 1rem;
     border: solid;
-    border-radius: 6px;
-    color: var(--Branco);
-    background-color: var(--Preto);
-    font-size: 0.9rem;
+    border-radius: 30px;
+    color: var(--Preto);
+    background-color: var(--Branco);
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -189,7 +384,7 @@
 }
 
 .feedback__submit:hover {
-    background-color: var(--Preto-hover);
+    background-color: #D9D9D8;
 }
 
 /*Sobre nós page*/
@@ -211,10 +406,10 @@
 }
 
 .sobre__strong {
-    padding: 0 0.4rem;
+    padding: 0 0.5rem;
     border-radius: 10px;
     font-weight: 700;
-    background-color: var(--Titulo-Especial);
+    background-color: #000000;
     color: var(--Branco);
     text-align: center;
 }
@@ -231,20 +426,35 @@
 }
 
 .sobre2 {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
     margin-bottom: 4rem;
+    padding: 0 2rem;
+    justify-items: center;
 }
 
 .sobre__fotos {
-    margin-bottom: 0.7rem;
-    width: 6rem;
+    margin-bottom: 1rem;
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.sobre__integrantes{
+.sobre__descricao {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.sobre__integrantes {
     margin-top: 1rem;
-    color: var(--Branco);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .sobre__divs {
@@ -252,30 +462,97 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 2rem 0 0 0;
+    margin: 2rem 0;
     font-size: 1rem;
     font-weight: 600;
-    width: 200px; /* Define a fixed width */
-    height: 250px; /* Define a fixed height */
+    width: 100%;
+    max-width: 250px;
+    min-height: 300px;
+    padding: 1rem;
+    border-radius: 30px;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .sobre__divs:hover {
     background-color: var(--Preto);
     color: var(--Branco);
-    transition: background-color 0.5s ease, color 0.5s ease;
-    padding: 1rem;
-    border-radius: 10px;
+}
+
+.sobre__divs:hover .sobre__integrantes {
+    opacity: 1;
+}
+
+/* BREAKPOINTS RESPONSIVOS */
+
+/* Desktop grande (4 colunas) */
+@media (min-width: 1200px) {
+    .sobre2 {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1000px;
+        margin: 0 auto 4rem auto;
+    }
+}
+
+/* Desktop médio (3 colunas) */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .sobre2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .sobre__divs:last-child {
+        grid-column: 2; /* centraliza o 4º item */
+    }
+}
+
+/* Tablet (2 colunas) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .sobre2 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile (1 coluna) */
+@media (max-width: 599px) {
+    .sobre2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .sobre__divs {
+        margin: 1rem 0;
+        min-height: 250px;
+    }
+    
+    .sobre__fotos {
+        width: 6rem;
+        height: 6rem;
+    }
+    
+    .sobre__descricao {
+        font-size: 1.1rem;
+    }
+    
+    .sobre__integrantes {
+        font-size: 0.9rem;
+    }
 }
 
 /*Termos de Uso*/
 .termos {
     text-align: justify;
-    margin: 2rem 10rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
 }
 
 .termos__titulo {
     font-size: 1.8rem;
     margin-bottom: 1.3rem;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 3%;
 }
 .termos__subt {
     margin-top: 1.5rem;
@@ -284,12 +561,17 @@
 
 /*Politica*/
 .politica {
-    margin-bottom: 3rem;
-    padding: 2rem 5rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
     text-align: justify;
+    max-width: 800px;
 }
+
 .politica__titulo {
     font-size: 1.8rem;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 3%;
 }
 
 .politica__subt {
@@ -298,40 +580,13 @@
 
 /*Index*/
 .index {
-    margin: 0 8rem;
+    margin: 0 auto;
     text-align: center;
+    max-width: 80%;
 }
 .index__titulo{
     margin: 2rem 2rem;
-    font-size: 2rem;
-}
-
-.index__botao__empreendedores,
-.index__botao__empresas {
-    transition: background-color 0.3s ease, color 0.3s ease;
-    padding: 0.6rem 0.8rem;
-    border-radius: 30px;
-    border: 2px solid var(--Preto);
-    color: var(--Preto);
-    background-color: var(--Branco);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.index__botao__empreendedores:hover,
-.index__botao__empresas:hover {
-    background-color: var(--Preto-hover);
-    color: var(--Branco);
-}
-
-.index__botao__empreendedores.active,
-.index__botao__empresas.active {
-    background-color: var(--Preto);
-    color: var(--Branco);
+    font-size: 2.15rem;
 }
 
 .index__form{
@@ -340,53 +595,183 @@
     margin: 2rem 0;
 }
 
-.pesquisa {
-    width: 60%;
-    padding: 0.8rem 1rem;
-    padding-right: 3rem; /* Espaço para o ícone */
-    border: 2px solid var(--Cinza);
-    border-radius: 30px;
-    font-size: 1rem;
-    color: var(--Preto);
-    background-color: var(--Branco);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease;
+/* ===== search-bar (substituir o bloco existente) ===== */
+
+:root {
+  --searchbar-collapsed-height: 64px; /* altura quando retraída (ajuste se quiser) */
+  --searchbar-transition: 350ms cubic-bezier(.2,.8,.2,1);
 }
 
-.pesquisa:focus {
-    border-color: var(--Preto);
-    outline: none;
+.search-wrapper {
+  position: relative;
+  width: 700px; /* alinha com suas larguras anteriores */
+  margin: 0 auto;
 }
 
-.index__grid{
-    margin: 5rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    row-gap: 1rem;
-    column-gap: 2rem;
-    justify-content: center;
-    
+.search-bar {
+  /* agora é um container vertical: linha superior + área de filtros abaixo */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #000000; /* fundo preto */
+  border-radius: 32px;
+  overflow: hidden; /* esconde os filtros quando retraída */
+  height: var(--searchbar-collapsed-height); /* altura inicial (retraída) */
+  transition: height var(--searchbar-transition);
+  will-change: height;
+  box-sizing: border-box;
+}
+
+/* Linha superior (menu + input + lupa) */
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+.search-btn {
+    margin-right: 12px;
+    margin-top: 3px;
+}
+
+/* mantém o estilo dos botões dentro da linha */
+.search-bar .menu-btn,
+.search-bar .search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Ícone tamanhos (mantive os seus valores) */
+.imagem_botao_lupa { width: 30px; height: auto; }
+
+/* Input continua flexível dentro da linha */
+.search-row input[type="search"] {
+  flex: 1;
+  margin-top: 1px;
+  padding: 12px 10px 12px 15px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #000000;
+}
+.search-row input[type="search"]::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.menu-btn {
+  position: relative;
+  width: 40px;
+  height: 30px; /* altura total do botão */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.circle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.menu-btn__line {
+  position: absolute;
+  left: 50%;
+  top: 50%;                          /* todas partem do meio verticalmente */
+  width: 24px;
+  height: 3px;                       /* inteiro para evitar artefatos */
+  background-color: #000000;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);  /* centraliza por padrão */
+  transform-origin: center center;   /* garante rotação no centro */
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), opacity 0.18s ease;
+}
+
+/* linha 1 (topo) — ligeiramente acima do centro via translateY */
+.menu-btn__line:nth-child(1) {
+  transform: translate(-50%, -50%) translateY(-8px);
+}
+
+/* linha 2 (meio) — exatamente no centro */
+.menu-btn__line:nth-child(2) {
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+/* linha 3 (baixo) — ligeiramente abaixo do centro via translateY */
+.menu-btn__line:nth-child(3) {
+  transform: translate(-50%, -50%) translateY(8px);
+}
+
+/* Estado X — usa só transform (e opacity) para animação limpa */
+.search-bar.expanded .menu-btn__line:nth-child(1),
+.menu-btn.active .menu-btn__line:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.search-bar.expanded .menu-btn__line:nth-child(2),
+.menu-btn.active .menu-btn__line:nth-child(2) {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(0); /* garante posição central */
+}
+
+.search-bar.expanded .menu-btn__line:nth-child(3),
+.menu-btn.active .menu-btn__line:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+
+
+
+.grid-item {
+    width: fit-content;
+}
+
+.index__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* grid adaptável */
+  gap: 5rem 0.5rem;  /* espaço entre linhas e colunas */
+  max-width: 800px;  /* limita largura máxima */
+  margin: 5rem auto; /* centraliza responsivamente */
+  justify-items: center; /* garante que cada item dentro da célula fique centralizado */
+}
+
+.index__grid > div {
+  text-align: center;     /* centraliza textos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* centraliza imagens */
 }
 
 .index__empresarios__img, .empresas__empresas__img{
     width: 200px;
     height: 200px; 
     object-fit: cover; 
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+   border-radius: 50%;
     display: block;
 }
 
 .index__empresarios__texto{
-    padding: 1rem 0;
-    border: solid var(--Preto);
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
     font-weight: 600;
+    font-size: 1.4rem;
     color: var(--Preto);
+    margin-top: 1rem;
+    width: 200px;
+    text-align: center;
 }
 
-.index__empresarios__butao{
+.index__empresarios__butao {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -394,142 +779,757 @@
     text-decoration: none; 
     background-color: var(--Branco);
     cursor: pointer;
+
+    /* animação suave para transform */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.index__empresarios__butao:hover{
+.index__empresarios__butao:hover {
     transform: scale(1.07);
-    transition: 0.7s;
 }
 
-/*Empresas*/
-.empresas {
-    background-color: var(--Preto);
-    min-height: 100vh;
-    width: 100vw;
-    padding: 2rem 8rem; /* Espaço interno nas laterais */
-    text-align: center;
-}
-
-.empresas__titulo{
-    color: var(--Branco);
-    font-size: 2rem;
-}
-
-.empresas__empresas__texto {
-    background-color: var(--Branco);
-    color: var(--Preto);
-    padding: 1rem 0;
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    font-weight: 600;
-    box-shadow: 0 20px 0 0 var(--Preto); /* sombra preta nos cantos inferiores */
-}
-
-.empresas__destaque {
-    color: var(--Branco);
-    background-color: purple;
-}
-
-.empresas__empresas__img {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    box-shadow: 0px 0px 0px 20px var(--Preto);
-}
-
-.grid_empresas {
-    background-color: var(--Preto);
-    padding-bottom: 0.5rem; /* opcional, para espaçamento */
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-}
-
-.cabecalho_empresas {
-    background-color: var(--Preto);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 2rem 0rem 2rem;
-    border-bottom: solid var(--Branco);
-}
-
-.cabecalho__sobre_empresas {
-    color: var(--Branco);
-    text-decoration: none;
+.index__empresarios__desc {
     font-size: 0.9rem;
+    font-weight: 400;
+    color: #555; /* cinza para diferenciar */
+    margin-top: 0.3rem;
+    text-align: center;
+    width: 200px;
+}
+
+/* PAGINAÇÃO */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.page-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 1500px;
+  font-size: 1rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.page-btn:hover {
+  transform: scale(1.1);
+}
+
+.page-btn.active {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+/*EMPREENDI NEGÓCIOS - - -- - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - -*/
+
+/*Cabeçalho NEGÓCIOS*/
+.cabecalho__empresas {
+    display: flex;
+    justify-content: center;   /* centraliza o logo */
+    align-items: center;
+    padding: 1rem 2rem;        /* espaçamento lateral responsivo */
+    background-color: var(--Preto);
+    gap: 2rem;                 /* espaço entre os itens */
+    position: relative;        /* vai ajudar no truque abaixo */
+}
+
+/* Truque para manter o logo 100% centralizado */
+.cabecalho__empresas nav,
+.index__botao__empresas {
+    flex: 1;                   /* lados ocupam espaço igual */
+    display: flex;
+}
+
+/* Mantém o "Sobre" à esquerda */
+.cabecalho__empresas nav {
+    justify-content: flex-start;
+    padding-left: 2rem;
+}
+
+/* Mantém o "Negócios" à direita */
+.index__botao__empresas {
+    justify-content: flex-end;
+    padding-right: 2rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .cabecalho__empresas nav {
+        padding-left: 1.5rem;
+    }
+
+    .index__botao__empresas {
+        padding-right: 1.5rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .cabecalho__empresas nav {
+        padding-left: 1rem;
+    }
+
+    .index__botao__empresas {
+        padding-right: 1rem;
+    }
+}
+
+/* Logo centralizado de forma garantida */
+.cabecalho__logo__empresas {
+    width: 2rem;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.cabecalho__sobre__empresas {
+    color: var(--Branco);
+    text-decoration: none;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 
-.rodape_empresas {
-    padding: 1.5rem 2rem;
+.index__botao__empreendedores__empresas {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 30px;
+    color: var(--Branco);
+    background-color: var(--Preto);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+/* Efeito sublinhado animado para Sobre e Negócios */
+.cabecalho__sobre__empresas,
+.index__botao__empreendedores__empresas {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--Branco);
+    font-weight: 600;
+}
+
+/* Linha escondida inicialmente */
+.cabecalho__sobre__empresas::after,
+.index__botao__empreendedores__empresas::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* distância da linha até o texto */
+    width: 0%;
+    height: 2px;
     background-color: var(--Branco);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Linha aparece da esquerda para a direita */
+.cabecalho__sobre__empresas:hover::after,
+.index__botao__empreendedores__empresas:hover::after {
+    width: 100%;
+}
+
+/*footer NEGÓCIOS*/
+.secao__rodape__empresas {
+    background-color: #000000;
+}
+
+.rodape__empresas {
+    padding: 1.5rem 2rem;
+    background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 730px;
+    margin: 0 auto;
+    border-radius: 40px;
+    padding: 2rem 1rem;  /* era para ser 5 ao invés de 2 para ficar do tamanho adequado*/
+    margin-bottom: 1rem;
 }
 
-.rodape__esquerda__logo_empresas {
+.rodape__esquerda__empresas {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.rodape__esquerda__logo__empresas {
     width: 12rem;
-    margin: 0 0 1rem 0.3rem;
+    margin: 1rem 0 0rem 0.3rem;
 }
 
-.rodape__esquerda__feedback_empresas { /*botão de feedback*/
+.rodape__esquerda__compliance__empresas {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.rodape__esquerda__feedback__empresas { /*botão de feedback*/
     text-decoration: none;
-    border: 2px solid var(--Preto);
+    border: 4px solid var(--Preto);
     background-color: var(--Preto);
-    border-radius: 100px;
+    border-radius: 1000px;
     color: var(--Branco);
     font-weight: 600;
     text-align: center;
     font-size: 1rem;
     margin-bottom: 2rem;
     padding: 0.3rem 0rem;
+    width: 210px;
+
+  /* animação mais suave para o zoom */
+    transition: transform 0.5s ease; /* aumentamos o tempo e suavizamos a curva */
 }
 
-.rodape__esquerda__info_empresas {
+.rodape__esquerda__feedback__empresas:hover {
+    transform: scale(1.08); /* aumento discreto */
+}
+
+.rodape__esquerda__info__empresas {
     color: var(--Preto);
-    font-size: 0.7rem;
-    font-weight: 400;
+    font-size: 0.75rem;
+    font-weight: 500;
     margin: 0 0 0.5rem 0.3rem;
-    text-align: left ;
+    text-align: left;
 }
 
-.rodape__direita__email_empresas {
+.rodape__direita__empresas {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.rodape__direita__email__empresas {
+    color: var(--Preto);
+    font-size: 1rem;
+    font-weight: 450;
+    margin: 0rem 1.6rem 1.2rem 0; /* Adjust margin as needed */
+}
+
+.rodape__esquerda__links__empresas {
+    margin: 0 1.6rem 0.5rem 0;
     color: var(--Preto);
     font-size: 0.9rem;
-    font-weight: 400;
-    margin: 0 1.6rem 1.2rem 0; /* Adjust margin as needed */
+    font-weight: 500;
+    text-align: left;
+    color: #696969;
+
+    /* animação suave para cor */
+    transition: color 0.4s ease;
 }
 
-.rodape__direita__redes_empresas {
+.rodape__esquerda__links__empresas:hover {
+    color: var(--Preto); /* muda para branco ao passar o cursor */
+}
+
+.rodape__direita__textos__empresas {
+    margin: 1.5rem 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.rodape__direita__link__empresas__empresas {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+    color: #696969;
+
+
+    /* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__direita__link__empresas__empresas:hover {
+    color: var(--Preto); /* muda para branco ao passar o cursor */
+}
+
+.rodape__direita__link__empresarios__empresas {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+    color: #696969;
+
+    /* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__direita__link__empresarios__empresas:hover {
+    color: var(--Preto); /* muda para branco ao passar o cursor */
+}
+
+.rodape__direita__empreendi__empresas {
+    margin: 2rem 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.rodape__direita__link__sobre__nos__empresas {
+    margin: 0 1.6rem 0.5rem 0;
+    color: var(--Preto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+    color: #696969;
+
+/* animação suave para cor */
+    transition: color 0.4s ease;
+}
+
+.rodape__direita__link__sobre__nos__empresas:hover {
+    color: var(--Preto); /* muda para branco ao passar o cursor */
+}
+
+.rodape__empresas a {
+    text-decoration: none;  /* remove o sublinhado */
+}
+
+/*redes sociais fim*/
+.redes__sociais__fim__empresas {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     align-items: center;
-    margin-bottom: 1.2rem; /* Adjust margin as needed */
+    margin: 2rem auto 0;
+    padding-bottom: 2rem;
 }
 
-.rodape__direita__redes__icones_empresas {
+.redes__sociais__fim__icone__linkedin__empresas, .redes__sociais__fim__icone__x__empresas, .redes__sociais__fim__icone__instagram__empresas, .redes__sociais__fim__icone__facebook__empresas {
     padding: 0.125rem;
-    width: 1.8rem;
-    }
+    width: 30px;
 
-.rodape__direita__redes__linkedin_empresas {
-    padding: 0.125rem;
-    width: 1.7rem;
+/* animação suave para transform e troca da imagem */
+    transition: transform 0.3s ease, content 0.3s ease;
 }
 
-.rodape__direita__links_empresas {
-    margin: 0 1.6rem 0.5rem 0;
-    color: var(--Preto);
-    font-size: 0.75rem;
+/* efeito ao passar o mouse */
+.redes__sociais__fim__empresas a:hover .redes__sociais__fim__icone__linkedin__empresas {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/linkedin/linkedin-cinza.png"); /* troca para a logo cinza */
+}
+
+.redes__sociais__fim__empresas a:hover .redes__sociais__fim__icone__x__empresas {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/X/x-cinza.png"); /* troca para a logo cinza */
+}
+
+.redes__sociais__fim__empresas a:hover .redes__sociais__fim__icone__instagram__empresas {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/instagram/instagram-cinza.svg"); /* troca para a logo cinza */
+}
+
+.redes__sociais__fim__empresas a:hover .redes__sociais__fim__icone__facebook__empresas {
+    transform: translateY(-4px); /* sobe levemente */
+    content: url("Assets/Logos redes sociais/facebook/facebook-cinza.png"); /* troca para a logo cinza */
+}
+
+/* PAGINAÇÃO NEGÓCIOS*/
+.pagination__empresas {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.page-btn__empresas {
+  background-color: #ffff;
+  color: #000000;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 1500px;
+  font-size: 1rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.page-btn__empresas:hover {
+  transform: scale(1.1);
+}
+
+.page-btn__empresas.active {
+  background-color: #000000;
+  color: #ffff;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Index NEGÓCIOS*/
+.index__empresas {
+    margin: 0 auto;
+    text-align: center;
+    background-color: #000000;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 2rem 8rem; /* Espaço interno nas laterais */
+}
+.index__titulo__empresas{
+    margin: 0rem 2rem 2rem 2rem;
+    font-size: 2.15rem;
+    color: #ffffff;
+}
+
+.index__form__empresas{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+/* ===== search-bar (substituir o bloco existente) ===== */
+
+:root {
+  --searchbar-collapsed-height: 64px; /* altura quando retraída (ajuste se quiser) */
+  --searchbar-transition: 350ms cubic-bezier(.2,.8,.2,1);
+}
+
+.search-wrapper__empresas {
+  position: relative;
+  width: 700px; /* alinha com suas larguras anteriores */
+  margin: 0 auto;
+}
+
+.search-bar__empresas {
+  /* agora é um container vertical: linha superior + área de filtros abaixo */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #ffffff; /* fundo preto */
+  border-radius: 32px;
+  overflow: hidden; /* esconde os filtros quando retraída */
+  height: var(--searchbar-collapsed-height); /* altura inicial (retraída) */
+  transition: height var(--searchbar-transition);
+  will-change: height;
+  box-sizing: border-box;
+}
+
+/* Linha superior (menu + input + lupa) */
+.search-row__empresas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+.search-btn__empresas {
+    margin-right: 12px;
+    margin-top: 3px;
+}
+
+/* mantém o estilo dos botões dentro da linha */
+.search-bar__empresas .menu-btn__empresas,
+.search-bar__empresas .search-btn__empresas {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Ícone tamanhos (mantive os seus valores) */
+.imagem_botao_lupa__empresas { width: 30px; height: auto; }
+
+/* Input continua flexível dentro da linha */
+.search-row__empresas input[type="search"] {
+  flex: 1;
+  margin-top: 1px;
+  padding: 12px 10px 12px 15px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #000000;
+  background-color: #ffffff;
+}
+.search-row__empresas input[type="search"]::placeholder {
+  color: #000000;
+  opacity: 0.7;
+}
+
+.menu-btn__empresas {
+  position: relative;
+  width: 40px;
+  height: 30px; /* altura total do botão */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.circle__empresas {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.menu-btn__line__empresas {
+  position: absolute;
+  left: 50%;
+  top: 50%;                          /* todas partem do meio verticalmente */
+  width: 24px;
+  height: 3px;                       /* inteiro para evitar artefatos */
+  background-color: #ffffff;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);  /* centraliza por padrão */
+  transform-origin: center center;   /* garante rotação no centro */
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), opacity 0.18s ease;
+}
+
+/* linha 1 (topo) — ligeiramente acima do centro via translateY */
+.menu-btn__line__empresas:nth-child(1) {
+  transform: translate(-50%, -50%) translateY(-8px);
+}
+
+/* linha 2 (meio) — exatamente no centro */
+.menu-btn__line__empresas:nth-child(2) {
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+/* linha 3 (baixo) — ligeiramente abaixo do centro via translateY */
+.menu-btn__line__empresas:nth-child(3) {
+  transform: translate(-50%, -50%) translateY(8px);
+}
+
+/* Estado X — usa só transform (e opacity) para animação limpa */
+.search-bar__empresas.expanded .menu-btn__line__empresas:nth-child(1),
+.menu-btn__empresas.active .menu-btn__line__empresas:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.search-bar__empresas.expanded .menu-btn__line__empresas:nth-child(2),
+.menu-btn__empresas.active .menu-btn__line__empresas:nth-child(2) {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(0); /* garante posição central */
+}
+
+.search-bar__empresas.expanded .menu-btn__line__empresas:nth-child(3),
+.menu-btn__empresas.active .menu-btn__line__empresas:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.grid-item__empresas {
+    width: fit-content;
+}
+
+.index__grid__empresas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* grid adaptável */
+  gap: 5rem 0.5rem;  /* espaço entre linhas e colunas */
+  max-width: 800px;  /* limita largura máxima */
+  margin: 5rem auto; /* centraliza responsivamente */
+  justify-items: center; /* garante que cada item dentro da célula fique centralizado */
+}
+
+.index__grid__empresas > div {
+  text-align: center;     /* centraliza textos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* centraliza imagens */
+}
+
+.index__empresarios__img, .empresas__empresas__img{
+    width: 200px;
+    height: 200px; 
+    object-fit: cover; 
+   border-radius: 50%;
+    display: block;
+}
+
+.empresas__empresas__texto{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--Branco);
+    margin-top: 1rem;
+    width: 200px;
+    text-align: center;
+}
+
+.index__empresarios__butao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    text-decoration: none; 
+    background-color: var(--Branco);
+    cursor: pointer;
+
+    /* animação suave para transform */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.index__empresarios__butao:hover {
+    transform: scale(1.07);
+}
+
+.index__empresas__desc {
+    font-size: 0.9rem;
     font-weight: 400;
-    text-align: right;
+    color: #bbb9b9; /* cinza para diferenciar */
+    margin-top: 0.3rem;
+    text-align: center;
+    width: 200px;
 }
+
+.index__empresas__especificas {
+    background-color: #000000;
+}
+
+
+
+
+
+
+/*CONTAINER DE FILTROS NEGÓCIOS*/
+
+/* ===== filtro-container (agora dentro da search-bar) ===== */
+.filtro-container__empresas {
+  width: calc(100% - 24px); /* fica com margem interna compatível */
+  margin: 8px 12px 14px 12px;
+  padding: 12px;
+  background-color: #ffffff; /* caixa preta escura */
+  color: #000000;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+
+  /* comportamento inicial (escondido visualmente / não clicável) */
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  transition-delay: 0ms;
+}
+
+/* Quando a search-bar está expandida, os filtros tornam-se visíveis */
+.search-bar__empresas.expanded .filtro-container__empresas {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 120ms; /* aparece logo após a barra começar a subir */
+}
+
+.titulo__filtros__empresas {
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
+    margin-left: 24px;
+    margin-top: 10px;
+}
+
+/* filtro-item e checkbox - mantive e organizei */
+.filtro-item__empresas {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Checkbox estilizado circular (mantive seu comportamento) */
+.filtro-item__empresas input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtro-item__empresas input[type="checkbox"]:checked {
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+}
+
+/* Botão aplicar */
+.filtro-aplicar__empresas {
+  margin-left: auto;
+  padding: 6px 15px;
+  background-color: #000000;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+.filtro-aplicar__empresas:hover { background-color: #d9d9d9; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*textos*/
 .textos {
-    margin: 3rem 15rem; 
+    margin: 3rem auto;
+    max-width: 900px; /* controla a largura para não ficar estourando */
+    padding: 0 1rem;  /* respiro nas laterais em telas pequenas */
     text-align: center;   
 }
 
@@ -570,4 +1570,116 @@
     text-decoration: none;
     color: var(--Links);
     font-weight: 600;
+}
+
+/*CONTAINER DE FILTROS*/
+
+/* ===== filtro-container (agora dentro da search-bar) ===== */
+.filtro-container {
+  width: calc(100% - 24px); /* fica com margem interna compatível */
+  margin: 8px 12px 14px 12px;
+  padding: 12px;
+  background-color: #000000; /* caixa preta escura */
+  color: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+
+  /* comportamento inicial (escondido visualmente / não clicável) */
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  transition-delay: 0ms;
+}
+
+/* Quando a search-bar está expandida, os filtros tornam-se visíveis */
+.search-bar.expanded .filtro-container {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 120ms; /* aparece logo após a barra começar a subir */
+}
+
+.titulo__filtros {
+    text-align: left;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-left: 24px;
+    margin-top: 10px;
+}
+
+/* filtro-item e checkbox - mantive e organizei */
+.filtro-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Checkbox estilizado circular (mantive seu comportamento) */
+.filtro-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtro-item input[type="checkbox"]:checked {
+  background-color: white;
+  border-color: white;
+}
+
+/* Botão aplicar */
+.filtro-aplicar {
+  margin-left: auto;
+  padding: 6px 15px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000000;
+  transition: background-color 0.3s ease;
+}
+.filtro-aplicar:hover { background-color: #d9d9d9; }
+
+/* Altera a cor de fundo e a cor do texto da seleção */
+::selection {
+    background-color: #ffcc00; /* cor de fundo da seleção */
+    color: #000000; /* cor do texto durante a seleção */
+}
+
+/* Para Firefox, use também */
+::-moz-selection {
+    background-color: #ffcc00;
+    color: #000000;
+}
+
+/* Remove o "X" padrão de inputs type="search" no Chrome/Edge */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Para Safari */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Para Firefox (ele não mostra X, mas por garantia) */
+input[type="search"]::-moz-search-clear {
+  display: none;
 }
