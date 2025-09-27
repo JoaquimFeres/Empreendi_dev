@@ -94,8 +94,8 @@ const filtroContainer = document.getElementById("filtroContainer");
 const aplicarBtn = document.getElementById("aplicarFiltros");
 const searchRow = searchForm.querySelector(".search-row__empresas");
 
-// lê a altura retraída da variável CSS (ex.: "64px") ou usa fallback
-const collapsedVar = getComputedStyle(searchForm).getPropertyValue('--searchbar-collapsed-height') || '64px';
+// lê a altura retraída da variável CSS (ex.: "57px") ou usa fallback
+const collapsedVar = getComputedStyle(searchForm).getPropertyValue('--searchbar-collapsed-height') || '57px';
 const COLLAPSED_HEIGHT = parseFloat(collapsedVar);
 
 // função que abre de forma suave

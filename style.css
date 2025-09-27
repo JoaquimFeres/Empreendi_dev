@@ -582,11 +582,27 @@
 .index {
     margin: 0 auto;
     text-align: center;
-    max-width: 80%;
+    max-width: 92%;
 }
 .index__titulo{
     margin: 2rem 2rem;
     font-size: 2.15rem;
+}
+
+@media (max-width:956px) {
+    .index__titulo {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width:500px) {
+    .index__titulo {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        margin-left: -3.2rem;
+        margin-right: -3.2rem;
+    }
 }
 
 .index__form{
@@ -598,13 +614,14 @@
 /* ===== search-bar (substituir o bloco existente) ===== */
 
 :root {
-  --searchbar-collapsed-height: 64px; /* altura quando retraída (ajuste se quiser) */
+  --searchbar-collapsed-height: 57px; /* altura quando retraída (ajuste se quiser) */
   --searchbar-transition: 350ms cubic-bezier(.2,.8,.2,1);
 }
 
 .search-wrapper {
   position: relative;
-  width: 700px; /* alinha com suas larguras anteriores */
+  max-width: 700px; /* alinha com suas larguras anteriores */
+  min-width: 350px;
   margin: 0 auto;
 }
 
@@ -614,7 +631,7 @@
   flex-direction: column;
   align-items: stretch;
   background-color: #000000; /* fundo preto */
-  border-radius: 32px;
+  border-radius: 30px;
   overflow: hidden; /* esconde os filtros quando retraída */
   height: var(--searchbar-collapsed-height); /* altura inicial (retraída) */
   transition: height var(--searchbar-transition);
@@ -627,7 +644,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 12px;
+  padding: 4px 12px;
 }
 
 .search-btn {
@@ -1217,13 +1234,14 @@
 /* ===== search-bar (substituir o bloco existente) ===== */
 
 :root {
-  --searchbar-collapsed-height: 64px; /* altura quando retraída (ajuste se quiser) */
+  --searchbar-collapsed-height: 57px; /* altura quando retraída (ajuste se quiser) */
   --searchbar-transition: 350ms cubic-bezier(.2,.8,.2,1);
 }
 
 .search-wrapper__empresas {
   position: relative;
-  width: 700px; /* alinha com suas larguras anteriores */
+  max-width: 700px; /* alinha com suas larguras anteriores */
+  min-width: 350px;
   margin: 0 auto;
 }
 
@@ -1233,7 +1251,7 @@
   flex-direction: column;
   align-items: stretch;
   background-color: #ffffff; /* fundo preto */
-  border-radius: 32px;
+  border-radius: 30px;
   overflow: hidden; /* esconde os filtros quando retraída */
   height: var(--searchbar-collapsed-height); /* altura inicial (retraída) */
   transition: height var(--searchbar-transition);
@@ -1246,7 +1264,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 12px;
+  padding: 4px 12px;
 }
 
 .search-btn__empresas {
@@ -1425,8 +1443,8 @@
 /* ===== filtro-container (agora dentro da search-bar) ===== */
 .filtro-container__empresas {
   width: calc(100% - 24px); /* fica com margem interna compatível */
-  margin: 8px 12px 14px 12px;
-  padding: 12px;
+  margin: 0px 12px 14px 12px;
+  padding: 12px 12px 6px 12px;
   background-color: #ffffff; /* caixa preta escura */
   color: #000000;
   border-radius: 16px;
@@ -1455,9 +1473,11 @@
     text-align: left;
     font-size: 16px;
     color: #000000;
+    opacity: 0.7;
     font-weight: 500;
-    margin-left: 24px;
-    margin-top: 10px;
+    margin-left: 0px;
+    margin-top: 3px;
+    margin-bottom: 12px;
 }
 
 /* filtro-item e checkbox - mantive e organizei */
@@ -1490,7 +1510,7 @@
 /* Botão aplicar */
 .filtro-aplicar__empresas {
   margin-left: auto;
-  padding: 6px 15px;
+  padding: 8px 20px;
   background-color: #000000;
   border: none;
   border-radius: 20px;
@@ -1577,8 +1597,8 @@
 /* ===== filtro-container (agora dentro da search-bar) ===== */
 .filtro-container {
   width: calc(100% - 24px); /* fica com margem interna compatível */
-  margin: 8px 12px 14px 12px;
-  padding: 12px;
+  margin: 0px 12px 14px 12px;
+  padding: 12px 12px 6px 12px;
   background-color: #000000; /* caixa preta escura */
   color: #ffffff;
   border-radius: 16px;
@@ -1607,9 +1627,11 @@
     text-align: left;
     font-size: 16px;
     color: #ffffff;
+    opacity: 0.7;
     font-weight: 500;
-    margin-left: 24px;
-    margin-top: 10px;
+    margin-left: 0px;
+    margin-top: 3px;
+    margin-bottom: 12px;
 }
 
 /* filtro-item e checkbox - mantive e organizei */
@@ -1642,7 +1664,7 @@
 /* Botão aplicar */
 .filtro-aplicar {
   margin-left: auto;
-  padding: 6px 15px;
+  padding: 8px 20px;
   background-color: #ffffff;
   border: none;
   border-radius: 20px;
