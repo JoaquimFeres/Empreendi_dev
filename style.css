@@ -401,7 +401,7 @@
     font-size: 2rem;
     font-weight: 700;
     color: var(--Preto);
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     text-align: center;
 }
 
@@ -526,8 +526,8 @@
     }
     
     .sobre__fotos {
-        width: 6rem;
-        height: 6rem;
+        width: 10rem;
+        height: 10rem;
     }
     
     .sobre__descricao {
@@ -536,6 +536,12 @@
     
     .sobre__integrantes {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .sobre1 {
+        padding: 1.5rem 2rem 2rem 2rem;
     }
 }
 
@@ -591,19 +597,68 @@
 
 @media (max-width:956px) {
     .index__titulo {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
+
+@media (max-width:765px) {
+    .index__titulo {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width:674px) {
+    .index__titulo {
         font-size: 1.8rem;
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:644px) {
+    .index__titulo {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width:610px) {
+    .index__titulo {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width:577px) {
+    .index__titulo {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:540px) {
     .index__titulo {
         font-size: 1.4rem;
         margin-top: 1rem;
-        margin-bottom: 2rem;
-        margin-left: -3.2rem;
-        margin-right: -3.2rem;
     }
 }
+
+@media (max-width:510px) {
+    .index__titulo {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width:404px) {
+    .index__titulo {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width:378px) {
+    .index__titulo {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
 
 .index__form{
     display: flex;
@@ -671,11 +726,12 @@
   margin-top: 1px;
   padding: 12px 10px 12px 15px;
   border: none;
-  border-radius: 50px;
+  border-radius: 0px;
   outline: none;
   font-size: 18px;
   color: #ffffff;
   background-color: #000000;
+  min-width: 180px;
 }
 .search-row input[type="search"]::placeholder {
   color: #ffffff;
@@ -1547,7 +1603,7 @@
 
 /*textos*/
 .textos {
-    margin: 3rem auto;
+    margin: 2rem auto 3rem auto;
     max-width: 900px; /* controla a largura para não ficar estourando */
     padding: 0 1rem;  /* respiro nas laterais em telas pequenas */
     text-align: center;   
@@ -1590,6 +1646,18 @@
     text-decoration: none;
     color: var(--Links);
     font-weight: 600;
+}
+
+@media (max-width: 530px) {
+    .textos__img {
+        width: 420px;
+    }
+}
+
+@media (max-width: 786px) {
+    .textos {
+        margin: 1rem auto 3rem auto
+    }
 }
 
 /*CONTAINER DE FILTROS*/
@@ -1704,4 +1772,122 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Para Firefox (ele não mostra X, mas por garantia) */
 input[type="search"]::-moz-search-clear {
   display: none;
+}
+
+/* Rodapé responsivo */
+@media (max-width: 768px) {
+  .rodape {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  
+  /* Dissolve os containers para permitir reordenação */
+  .rodape__esquerda,
+  .rodape__direita {
+    display: contents;
+  }
+  
+  /* Centraliza e ordena as divs */
+  .rodape__f__esq,
+  .rodape__emai__dir,
+  .rodape__tex__sobr__dir,
+  .rodape__comp__logo__esq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* para forçar centralização */
+  .rodape__esquerda__compliance,
+  .rodape__esquerda__links,
+  .rodape__esquerda__info,
+  .rodape__direita__email,
+  .rodape__direita__textos,
+  .rodape__direita__link__empresas,
+  .rodape__direita__link__empresarios,
+  .rodape__direita__empreendi,
+  .rodape__direita__link__sobre__nos {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Define a ordem desejada */
+  .rodape__f__esq { order: 1; }
+  .rodape__emai__dir { order: 2; }
+  .rodape__tex__sobr__dir { order: 3; }
+  .rodape__comp__logo__esq { order: 4; }
+
+  .rodape__emai__dir {
+    margin-top: -40px;
+    margin-bottom: -50px;
+  }
+}
+
+/*DEFINIÇÕES RODAPÉ FILHOS DA DIREITA E ESQUERDA*/
+.rodape__f__esq,
+.rodape__comp__logo__esq,
+.rodape__emai__dir,
+.rodape__tex__sobr__dir {
+    display: flex;
+    flex-direction: column;
+    align-items: inherit; /* herda o alinhamento do pai */
+}
+
+/*Tirando o botão sobre e negócios nos celulares e fazendo o botão flutuante aparecer*/
+@media (max-width: 530px) {
+    .cabecalho__sobre {
+        display: none;
+    }
+    
+    .index__botao__das__empresas {
+        display: none;
+    }
+}
+
+/* botão flutuante celular */
+.botao__flutuante__celular {
+    display: none;       /* invisível por padrão */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 80px;         /* largura do botão */
+    height: 80px;        /* altura do botão */
+}
+
+.botao__flutuante__celular img.imagem__predios {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* mantém proporção da imagem */
+    display: block;      /* evita espaços extras */
+}
+
+/*responsividade*/
+@media (max-width: 530px) {
+    .botao__flutuante__celular {
+        display: block; /* garante que sobreponha qualquer outro estilo */
+    }
+}
+
+
+.rodape {
+    position: relative;
+    z-index: 9999;
+}
+
+
+
+
+/* Animação para o botão flutuante desaparecer depois do rodapé */
+.botao__flutuante__celular.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }

@@ -225,3 +225,59 @@ aplicarBtn.addEventListener('click', (e) => {
   // garante que o menu-btn volte sempre ao estado hambúrguer
   menuBtn.classList.remove("active");
 });
+
+
+
+
+
+// ... todo seu código existente (sendMail, filtros, paginação, etc.) ...
+
+// ===== NOVO: CONTROLE DO BOTÃO FLUTUANTE =====
+// ===== CONTROLE DO BOTÃO FLUTUANTE =====
+// Esconde o botão quando o rodapé entra em vista
+function initBotaoFlutuanteControl() {
+  const botao = document.querySelector('.botao__flutuante__celular');
+  const rodape = document.querySelector('.rodape');
+  
+  // Verifica se os elementos existem
+  if (!botao || !rodape) return;
+  
+  // Só executa em telas de celular (≤530px)
+  if (window.innerWidth > 530) return;
+  
+  // Cria o Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Rodapé está visível - esconde o botão
+        botao.classList.add('hidden');
+      } else {
+        // Rodapé não está visível - mostra o botão
+        botao.classList.remove('hidden');
+      }
+    });
+  }, {
+    // Configurações do observer
+    root: null, // viewport
+    rootMargin: '0px',
+    threshold: 0.1 // dispara quando 10% do rodapé está visível
+  });
+  
+  // Inicia a observação do rodapé
+  observer.observe(rodape);
+  
+  // Re-avalia quando a tela é redimensionada
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 530) {
+      // Desktop - para de observar e remove classe
+      observer.disconnect();
+      botao.classList.remove('hidden');
+    } else {
+      // Mobile - reinicia observação se necessário
+      observer.observe(rodape);
+    }
+  });
+}
+
+// Executa quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', initBotaoFlutuanteControl);
