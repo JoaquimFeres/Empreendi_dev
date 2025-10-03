@@ -236,8 +236,8 @@ aplicarBtn.addEventListener('click', (e) => {
 // ===== CONTROLE DO BOTÃO FLUTUANTE =====
 // Esconde o botão quando o rodapé entra em vista
 function initBotaoFlutuanteControl() {
-  const botao = document.querySelector('.botao__flutuante__celular');
-  const rodape = document.querySelector('.rodape');
+  const botao = document.querySelector('.botao__flutuante__celular, .botao__flutuante__celular__empresas');
+  const rodape = document.querySelector('.rodape, .rodape__empresas');
   
   // Verifica se os elementos existem
   if (!botao || !rodape) return;
