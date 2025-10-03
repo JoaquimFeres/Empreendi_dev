@@ -281,3 +281,62 @@ function initBotaoFlutuanteControl() {
 
 // Executa quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', initBotaoFlutuanteControl);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ===== STICKY SEARCH BAR EM MOBILE =====
+function initStickySearchBar() {
+  // Só executa em mobile (≤530px)
+  if (window.innerWidth > 530) return;
+  
+  const searchWrapper = document.querySelector('.search-wrapper, .search-wrapper__empresas');
+  if (!searchWrapper) return;
+  
+  // Cria o Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        // Se a barra NÃO está visível na viewport original = está "stuck"
+        if (!entry.isIntersecting) {
+          searchWrapper.classList.add('is-stuck');
+        } else {
+          searchWrapper.classList.remove('is-stuck');
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0,
+      rootMargin: '-1px 0px 0px 0px' // detecta quando sai do topo
+    }
+  );
+  
+  observer.observe(searchWrapper);
+  
+  // Re-avalia no resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 530) {
+      observer.disconnect();
+      searchWrapper.classList.remove('is-stuck');
+    } else {
+      observer.observe(searchWrapper);
+    }
+  });
+}
+
+// Executa após o DOM carregar
+document.addEventListener('DOMContentLoaded', initStickySearchBar);

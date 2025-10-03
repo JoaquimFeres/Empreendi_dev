@@ -2110,3 +2110,42 @@ body {
 body:has(.index__empresas) {
     background-color: #000000;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BARRA DE PESQUISA FIXADA NO TOPO EM CELULARES */
+@media (max-width: 530px) {
+    .search-wrapper,
+    .search-wrapper__empresas {
+        position: sticky;
+        top: 0;
+        z-index: 999; /* fica acima de outros elementos */
+        background-color: transparent;
+        padding: 10px 0;
+        transition: all 0.3s ease;
+    }
+    
+    /* Quando estiver "grudada" no topo */
+    .search-wrapper.is-stuck,
+    .search-wrapper__empresas.is-stuck {
+        background-color: rgba(255, 255, 255, 0.95); /* sombra sutil para destacar */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Versão empresas tem fundo escuro */
+    .search-wrapper__empresas.is-stuck {
+        background-color: rgba(0, 0, 0, 0.95);
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
+}
